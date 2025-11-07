@@ -1,1 +1,528 @@
 
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Revista Digital – Institución Etnoeducativa Siete de Agosto</title>
+  <style>
+    /* Paleta ajustada al logo que enviaste */
+    :root{
+    --color-primario:#0C6B2A;
+    --color-secundario:#FFCC00;
+    --color-acento:#ffffff;
+    --texto:#111;
+    --card-bg:rgba(255,255,255,0.95);
+    --page-bg:linear-gradient(180deg,#ffffff 0%, #f7fff7 60%);
+  }
+  *{box-sizing:border-box;}
+
+    body{
+      margin:0;
+      font-family: "Poppins", Arial, sans-serif;
+      background: var(--page-bg);
+      color:var(--texto);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+    }
+
+    /* HEADER / BANNER */
+    header{
+      background: linear-gradient(135deg,var(--color-primario), var(--color-secundario));
+      color:#fff;
+      padding:50px 18px;
+      text-align:center;
+      position:relative;
+    }
+
+    .banner-inner{
+      max-width:1100px;
+      margin:0 auto;
+      display:flex;
+      gap:22px;
+      align-items:center;
+      justify-content:center;
+      flex-wrap:wrap;
+    }
+
+    header .logo{
+  width:140px;
+  height:140px;
+  border-radius:50%;
+  background:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  box-shadow:0 6px 22px rgba(0,0,0,0.25);
+  flex:0 0 140px;
+  padding:0; /* <--- IMPORTANTE */
+}
+
+
+   header .logo img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  border-radius:50%;
+  object-position: 47% center; /* <<< mueve la imagen un poquito a la derecha */
+}
+
+
+
+    header h1{
+      margin:0;
+      font-size:1.55rem;
+      line-height:1.1;
+      text-shadow:0 3px 10px rgba(0,0,0,0.25);
+      flex:1 1 420px;
+    }
+
+    header .sub{
+      width:100%;
+      text-align:center;
+      margin-top:10px;
+      color:var(--color-acento);
+      font-weight:600;
+    }
+
+    /* NAV */
+    nav{
+      background:var(--color-primario);
+      padding:12px;
+      position:sticky;
+      top:0;
+      z-index:200;
+      box-shadow:0 2px 8px rgba(0,0,0,0.08);
+    }
+
+    nav .wrap{
+      max-width:1100px;
+      margin:0 auto;
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      justify-content:center;
+    }
+
+    nav a{
+      background:var(--color-secundario);
+      color:#fff;
+      padding:10px 14px;
+      border-radius:8px;
+      text-decoration:none;
+      font-weight:600;
+      transition:transform .18s ease, background .18s;
+      font-size:0.95rem;
+    }
+
+    nav a:hover{ background:var(--color-acento); color:#000; transform:scale(1.06); }
+
+    /* SECTION (card look) */
+    .section-card{
+      max-width:1100px;
+      margin:36px auto;
+      padding:28px;
+      border-radius:12px;
+      background:var(--card-bg);
+      box-shadow:0 6px 20px rgba(8,20,40,0.06);
+      animation:fadeInUp .6s ease both;
+    }
+
+    h2{
+      margin-top:0;
+      color:var(--color-secundario);
+      border-left:6px solid var(--color-acento);
+      padding-left:12px;
+      margin-bottom:12px;
+    }
+
+    p{ text-align:justify; line-height:1.55; }
+
+    /* galerías: imágenes llenan y no dejan fondo */
+    .galeria{
+      display:grid;
+      gap:10px;
+      margin-top:18px;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      align-items:stretch;
+    }
+
+    .galeria img{
+      width:100%;
+      height:220px;              /* fijo para mantener rejilla uniforme */
+      object-fit:cover;          /* cubre sin dejar huecos blancos */
+      border-radius:10px;
+      transition:transform .35s ease, filter .35s ease, box-shadow .35s ease;
+      box-shadow:0 3px 12px rgba(6,18,40,0.12);
+    }
+
+    /* hover muy sutil (brillo minimin) */
+    .galeria img:hover{
+      transform:scale(1.02);
+      filter:brightness(1.04);
+      box-shadow:0 8px 30px rgba(0,0,0,0.15);
+    }
+
+    .small-hero{
+      width:100%;
+      height:380px;
+      border-radius:10px;
+      object-fit:cover;
+      display:block;
+      margin-top:14px;
+      box-shadow:0 6px 20px rgba(0,0,0,0.12);
+    }
+
+    .quote{
+      margin:20px auto;
+      text-align:center;
+      font-style:italic;
+      color:var(--color-primario);
+      max-width:820px;
+    }
+
+    .meta{
+      color:var(--color-secundario);
+      font-weight:700;
+      display:block;
+      margin-top:6px;
+    }
+
+    .back{
+      display:inline-block;
+      margin-top:18px;
+      padding:10px 16px;
+      border-radius:8px;
+      background:var(--color-primario);
+      color:#fff;
+      text-decoration:none;
+      transition:all .2s;
+    }
+
+    .back:hover{ background:var(--color-acento); color:#000; transform:scale(1.06); }
+
+    footer{
+      margin-top:50px;
+      background:var(--color-primario);
+      color:#fff;
+      text-align:center;
+      padding:24px;
+      font-size:0.95rem;
+    }
+
+    /* tiny responsive tweaks */
+    @media (max-width:720px){
+      .galeria img{ height:180px; }
+      header{ padding:36px 12px; }
+      header .logo{ width:110px; height:110px; flex:0 0 110px; }
+      header h1{ font-size:1.2rem; }
+    }
+
+    @keyframes fadeInUp{
+      from{ opacity:0; transform:translateY(16px); } to{ opacity:1; transform:none; }
+    }
+/* Botón que abre el menú */
+.menu-button {
+  font-size: 25px;
+  background: #0f6e00;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  z-index: 1000;
+}
+
+/* Menú lateral */
+.side-menu {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  background-color: #094d00;
+  overflow-x: hidden;
+  transition: 0.4s;
+  padding-top: 60px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;#42445A
+  padding-left: 20px;
+}
+
+/* Estilo del texto del menú */
+.side-menu h2 {
+  color: white;
+  margin-bottom: 10px;
+}
+
+
+.side-menu a {
+  padding: 8px 0;
+  text-decoration: none;
+  color: #cfffcb;
+  font-size: 20px;
+}
+
+.side-menu a:hover {
+  color: white;
+  transform: translateX(5px);
+}
+
+/* Botón de cerrar */
+.close-button {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 25px;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+html {
+  scroll-behavior: smooth;
+}
+.section-header {
+  width: 100%;
+  padding: 40px 20px;
+  background: linear-gradient(135deg, #FFD500, #FFEA70); /* Amarillo intenso → Amarillo suave */
+  color: white; /* Texto oscuro para que se lea mejor */
+  border-radius: 12px;
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 1.7rem;
+  font-weight: 700;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+}
+
+
+  </style>
+</head>
+<body>
+  <!-- Botón del menú -->
+
+<!-- Menú lateral -->
+<div id="sideMenu" class="side-menu">
+  <button id="closeMenu" class="close-button">✖</button>
+
+  <h2>Secciones</h2>
+  <a href="#vida">Vida Escolar</a>
+  <a href="#proyectos">Proyectos Pedagógicos</a>
+  <a href="#tecno">Tecnología e Innovación</a>
+  <a href="#deportes">Deportes y Recreación</a>
+  <a href="#arte">Arte y Cultura</a>
+  <a href="#tradicion">Tradición e Identidad</a>
+  <a href="#creditos">Webgrafía</a>
+</div>
+
+
+
+  <header>
+    <div class="banner-inner">
+      <div class="logo">
+        <img src="https://i.imgur.com/1mHNuWv.png" alt="Logo IE Siete de Agosto">
+      </div>
+
+      <div style="min-width:260px; max-width:740px;">
+        <h1>Revista Digital – Institución Etnoeducativa Siete de Agosto</h1>
+        <div class="sub">Edición: Temporada 1 — <strong>Creciendo Juntos</strong></div>
+      </div>
+    </div>
+  </header>
+
+  <nav>
+    <div class="wrap">
+      <a href="#vida">Vida Escolar</a>
+      <a href="#proyectos">Proyectos</a>
+      <a href="#tecno">Tecnología</a>
+      <a href="#deportes">Deportes</a>
+      <a href="#arte">Arte & Cultura</a>
+      <a href="#tradicion">Tradición</a>
+      <a href="#creditos">Webgrafía</a>
+    </div>
+  </nav>
+
+  <!-- VIDA ESCOLAR (texto restaurado + galería) -->
+  <section id="vida" class="section-card">
+  <div class="section-header">Vida Escolar</div>
+
+
+    <p>
+      La vida escolar en la Institución Etnoeducativa Siete de Agosto está llena de momentos que dejan huella: actividades diarias, proyectos interclase, jornadas culturales y convivencias que fortalecen lazos. Los estudiantes se forman no solo en contenidos académicos, sino en valores como la solidaridad, el respeto y el trabajo colaborativo.
+    </p>
+
+    <p>
+      En las aulas se promueve la participación activa: debates, trabajos en equipo, exposiciones y actividades artísticas. Fuera de ellas, los estudiantes se encuentran en actividades deportivas, clubes y espacios de orientación que favorecen el desarrollo integral.
+    </p>
+
+    <div class="galeria" aria-hidden="false">
+      <img src="https://i.imgur.com/VDTHL76.png" alt="Convivencia estudiantil">
+      <img src="https://i.imgur.com/O7riwVx.png" alt="Actividades escolares">
+      <img src="https://i.imgur.com/gh3YOLM.png" alt="Eventos institucionales">
+    </div>
+
+    <p class="quote">“En la escuela no solo aprendemos conocimientos, sino también a ser mejores personas cada día.” ✨</p>
+
+    <a class="back" href="#top">Volver al menú</a>
+  </section>
+
+  <!-- PROYECTOS (PRAE incluido y frase huerta) -->
+  <section id="vida" class="section-card">
+  <div class="section-header">Proyectos pedagógicos</div>
+
+
+    <p>
+      En la Institución Etnoeducativa Siete de Agosto, los proyectos pedagógicos son el corazón del aprendizaje. Cada área desarrolla propuestas que integran el conocimiento con la vida real, fomentando la investigación, la creatividad y el trabajo en equipo. Desde iniciativas ambientales y científicas hasta propuestas sociales y tecnológicas, los estudiantes asumen el rol de protagonistas.
+    </p>
+
+    <p>
+      El proyecto ambiental escolar (PRAE) destaca por su impacto en la comunidad: la huerta escolar, las jornadas de siembra y las acciones de reciclaje han convertido al colegio en un referente local de educación ambiental. Estas actividades enseñan cuidado del entorno, hábitos saludables y trabajo colectivo.
+    </p>
+
+    <div class="galeria">
+      <img src="https://i.imgur.com/u4UFimj.png" alt="Proyecto escolar en exposición">
+      <img src="https://i.imgur.com/7nPmBVQ.png" alt="Presentación de estudiantes">
+      <img src="https://i.imgur.com/bQVbYpb.png" alt="Muestra pedagógica">
+      <img src="https://i.imgur.com/4gE6mKf.png" alt="Huerta escolar">
+    </div>
+
+    <div class="quote" style="margin-top:18px;">
+      <em>“La huerta es un territorio de paz, un espacio donde se aprende para la vida.”</em><br>
+      <span class="meta">– Docente de la Institución Etnoeducativa Siete de Agosto</span>
+    </div>
+
+    <p>
+      Además, las salidas pedagógicas complementan la formación con visitas a museos, universidades, reservas naturales y entidades culturales. Estas vivencias amplían la perspectiva del estudiante y consolidan el aprendizaje experiencial.
+    </p>
+
+    <a class="back" href="#top">Volver al menú</a>
+  </section>
+
+  <!-- TECNO -->
+  <section id="vida" class="section-card">
+  <div class="section-header">Tecnología e Innovación</div>
+
+
+    <p>
+      La institución promueve el uso responsable y creativo de la tecnología. Este año se fortalecieron las competencias digitales con talleres sobre inteligencia artificial básica, herramientas colaborativas en la nube y nociones de ciberseguridad. Los estudiantes desarrollaron proyectos que integran datos, programación y diseño digital.
+    </p>
+
+    <p>
+      Las alianzas con instituciones técnicas y visitas al SENA permitieron que los alumnos de grado 11 conozcan procesos de automatización, robótica y diseño, acercándolos a oportunidades de formación técnica y profesional.
+    </p>
+
+    <img class="small-hero" src="https://i.imgur.com/DzP629l.png" alt="Visita al SENA">
+
+    <a class="back" href="#top">Volver al menú</a>
+  </section>
+
+  <!-- DEPORTES -->
+  <section id="vida" class="section-card">
+  <div class="section-header">Deportes y Recreación</div>
+
+
+    <p>
+      En la Institución Etnoeducativa Siete de Agosto, el deporte es una práctica esencial que fomenta la disciplina, la solidaridad y el bienestar. Organizamos torneos internos y participamos en encuentros intercolegiados donde se destacan el fútbol, el baloncesto, atletismo y otras disciplinas.
+    </p>
+
+    <p>
+      Entrenamientos constantes, actividades recreativas y jornadas deportivas fortalecen el espíritu de equipo y el liderazgo de los estudiantes, creando espacios de convivencia sana y formación integral.
+    </p>
+
+    <div class="galeria">
+      <img src="https://i.imgur.com/DMJIZdM.png" alt="Equipo deportivo IE Siete de Agosto">
+      <img src="https://i.imgur.com/3rcEWHH.png" alt="Partido escolar de fútbol">
+      <img src="https://i.imgur.com/sHTjtec.png" alt="Entrenamiento de estudiantes">
+      <img src="https://i.imgur.com/S3IGaQO.png" alt="Competencia atlética">
+    </div>
+
+    <div class="quote" style="margin-top:18px;">
+      <em>“El deporte no solo forma cuerpos fuertes, sino también mentes y corazones valientes.”</em><br>
+      <span class="meta">– Coordinación de Educación Física</span>
+    </div>
+
+    <a class="back" href="#top">Volver al menú</a>
+  </section>
+
+  <!-- ARTE & CULTURA -->
+  <section id="vida" class="section-card">
+  <div class="section-header">Arte y Cultura</div>
+
+
+    <p>
+      La expresión artística en el Siete de Agosto reúne música, danza, teatro, artes plásticas y más. Los festivales y muestras permiten que los estudiantes exploren identidades, tradiciones y nuevas formas de narrar su mundo.
+    </p>
+
+    <p>
+      Actividades como el festival “Talentos en Escena”, talleres de muralismo y coros escolares han demostrado el enorme potencial creativo de nuestros jóvenes.
+    </p>
+
+    <div class="galeria">
+      <img src="https://i.imgur.com/d74lxE2.png" alt="Presentación artística">
+      <img src="https://i.imgur.com/bvasAeN.jpeg" alt="Exposición cultural">
+      <img src="https://i.imgur.com/TgIJLMp.png" alt="Pintura estudiantil">
+    </div>
+
+    <a class="back" href="#top">Volver al menú</a>
+  </section>
+
+  <!-- TRADICIÓN E IDENTIDAD (más historia) -->
+  <section id="vida" class="section-card">
+  <div class="section-header">Tradición e Identidad</div>
+
+
+    <p>
+      La Institución Etnoeducativa Siete de Agosto nació como un proyecto comunitario orientado a ofrecer educación de calidad con énfasis en la inclusión y la identidad étnica. A lo largo de sus más de cinco décadas, la institución ha pasado por distintas etapas de crecimiento: desde sus primeros salones y cursos iniciales hasta la consolidación de programas pedagógicos y comunitarios que han marcado su sello.
+    </p>
+
+    <p>
+      A través del tiempo, el colegio ha sido testigo de cambios sociales y educativos en la región. Se consolidaron proyectos de proyección social, alianzas con instituciones técnicas y culturales, y una comunidad de docentes y familias comprometidas que han permitido mantener viva la misión institucional: formar ciudadanos críticos, solidarios y con identidad.
+    </p>
+
+    <p>
+      Hoy, la IE Siete de Agosto es un referente local por su trabajo pedagógico, su enfoque en la diversidad y su constante aporte al desarrollo cultural y social del barrio y la ciudad. Sus egresados han ocupado espacios en la universidad, el emprendimiento y el servicio comunitario, llevando consigo los valores aprendidos en la institución.
+    </p>
+
+    <div class="galeria">
+      <img src="https://i.imgur.com/SJ9iKTt.jpeg" alt="Aniversario 50 años">
+    </div>
+
+    <a class="back" href="#top">Volver al menú</a>
+  </section>
+
+  <!-- CREDITOS / WEBGRAFIA -->
+  <section id="creditos" class="section-card">
+    <h2>Webgrafía</h2>
+    <ul>
+      <li><a href="https://ieosietedeagosto.edu.co/" target="_blank">Sitio web oficial de la IE Siete de Agosto</a></li>
+      <li>Recursos fotográficos y textos: comunidad educativa</li>
+      <li>Diseño y desarrollo: Equipo estudiantil 2025</li>
+    </ul>
+
+    <a class="back" href="#top">Volver al menú</a>
+  </section>
+
+  <footer>
+    © 2025 Revista Digital IE Siete de Agosto – Desarrollado por el Equipo Estudiantil.
+  </footer>
+<script>
+  const sideMenu = document.getElementById("sideMenu");
+  const openMenu = document.getElementById("openMenu");
+  const closeMenu = document.getElementById("closeMenu");
+
+  openMenu.addEventListener("click", () => {
+    sideMenu.style.width = "260px";
+  });
+
+  closeMenu.addEventListener("click", () => {
+    sideMenu.style.width = "0";
+  });
+</script>
+
+</body>
+</html>
