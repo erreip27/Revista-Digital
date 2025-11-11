@@ -314,7 +314,7 @@ html {
   <a href="#proyectos">Proyectos Pedagógicos</a>
   <a href="#tecno">Tecnología e Innovación</a>
   <a href="#deportes">Deportes y Recreación</a>
-  <a href="#arte">Arte y Cultura</a>
+  <a href="#arte">Arte & Cultura<</a>
   <a href="#tradicion">Tradición e Identidad</a>
   <a href="#creditos">Webgrafía</a>
 </div>
@@ -337,11 +337,11 @@ html {
   <nav>
     <div class="wrap">
       <a href="#vida">Vida Escolar</a>
-      <a href="#proyectos">Proyectos</a>
-      <a href="#tecno">Tecnología</a>
-      <a href="#deportes">Deportes</a>
+      <a href="#proyectos">Proyectos Pedagógicos</a>
+      <a href="#tecno">Tecnología e Innovación</a>
+      <a href="#deportes">Deportes y Recreación</a>
       <a href="#arte">Arte & Cultura</a>
-      <a href="#tradicion">Tradición</a>
+      <a href="#tradicion">Tradición e Identidad</a>
       <a href="#creditos">Webgrafía</a>
     </div>
   </nav>
